@@ -11,12 +11,13 @@ python kafka_server.py
 Check the kafka topic and consume data:
 /usr/bin/kafka-topics --describe --zookeeper localhost:2181 --topic calls
 kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic calls
-
+![Kafka Consumer](img/kafka_consumer.png)
+![Kafka Consumer Result](img/kafka_consumer_result.png)
 # Step4:
 Run Spark Streaming:
 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 --master local[*] data_stream.py
-
-
+![Spark Streaming](img/sparkstreaming1.PNG)
+![Spark Streaming](img/sparkui.PNG)
 
 ## Question 1: How did changing values on the SparkSession property parameters affect the throughput and latency of the data?
 We can tweak the number of micro-batches received with processRowsPerSecond using maxOffsetPerTrigger and maxRatePerPartition options.
